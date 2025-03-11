@@ -138,7 +138,7 @@ def process_file(file_path: str) -> None:
             'file_name': file_name,
             'chunk_number': i,
             'timestamp': datetime.now().isoformat(),
-            'preview': chunk[:100] # preview of the chunk
+            'preview': chunk[:30] # preview of the chunk
         }
 
         # Add the embedding to the collection
