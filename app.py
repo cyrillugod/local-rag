@@ -10,7 +10,7 @@ from chromadb import Client
 from chromadb.config import Settings
 
 PERSISTENT_DIRECTORY = './chroma_db'
-COLLECTION_NAME = 'local_collection'
+COLLECTION_NAME = 'local_collection' # hardcoded for now
 
 # Initialize the console
 console = Console()

@@ -1,0 +1,12 @@
+Car Loan Eligibility Criteria
+To qualify for a car loan, applicants must meet the following criteria:
+
+1. Age: Must be between 21 and 65 years old at loan maturity.
+
+2. Employment: Should be salaried or self-employed with a stable income.
+
+3. Credit Score: A minimum credit score of 650 is required.
+
+4. Income: Monthly income should meet or exceed the lender's minimum requirement.
+
+5. Residency: Must be a resident or citizen of the country where the loan is applied.
