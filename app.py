@@ -37,9 +37,9 @@ def get_embedding(text: str) -> list:
     except Exception as e:
         console.print(f'[red]Error: {e}[/red]')
         return None
-    
-PROCESSED_FILES_PATH = 'processed_files.json'
 
+
+PROCESSED_FILES_PATH = 'processed_files.json'
 
 def load_processed_files():
     '''
@@ -143,14 +143,13 @@ def process_file(file_path: str) -> None:
 
         # Add the embedding to the collection
         try:
-            print(embedding)
+            # print(embedding)
             collection.add(
                 embeddings=[embedding],
-                metadata=[metadata],
+                metadatas=[metadata],
                 documents=[chunk],
-                vector_ids=[vector_id]
-
-            )
+                ids=[vector_id]
+                )
             console.print(f'[green]Added {vector_id} to collection[/green]')
         except Exception as e:
             console.print(f'[red]Error adding to collection: {e}[/red]')
@@ -219,6 +218,7 @@ def update_files():
     processed = load_processed_files()
 
     for file_name in os.listdir(folder_path):
+        print(file_name)
         file_path = os.path.join(folder_path, file_name)
 
         if os.path.isfile(file_path):

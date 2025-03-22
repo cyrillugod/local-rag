@@ -10,7 +10,8 @@ def main():
         query = input('Enter your question: ')
         if (query == 'exit') or (query == 'quit'):
             sys.exit()
-
+        
+        # print(query)
         answer = chat_response(query)
         console.print(answer)
 
@@ -35,7 +36,8 @@ def chat_response(query):
         context = collection.query(query_embeddings=emb_query,
                                    n_results=5,
                                    )
-        
+        print('retrieved context')
+        print(context)
     except:
         console.print(f'[red]Unable to query ChromaDB.[/red]')
 
@@ -46,7 +48,7 @@ def chat_complete(emb_query: str, system_message: str, context: str) -> str:
     '''
     Completes chat response by passing query, system prompt, and context to LLM
     '''
-    
+    # print(emb_query)
     try:
         response = chat(model='deepseek-r1:8b',
                         messages=[
