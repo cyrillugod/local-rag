@@ -1,0 +1,8 @@
+pandas
+numpy<2
+ChromaDB
+sentence-transformers
+ollama
+PyMuPDF
+langchain-text-splitters
+tiktoken
