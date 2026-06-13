@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Local RAG Chatbot</title>
+    <style>
+        body {
+            font-family: Arial;
+            max-width: 700px;
+            margin: 40px auto;
+        }
+
+        #chatbox {
+            border: 1px solid #ddd;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .user {
+            color: blue;
+            margin: 5px 0;
+        }
+
+        .bot {
+            color: green;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>🧠 Local RAG Chatbot</h2>
+
+<div id="chatbox"></div>
+
+<input id="input" style="width:80%" placeholder="Ask something..." />
+<button onclick="sendMessage()">Send</button>
+
+<script>
+async function sendMessage() {
+
+    const input = document.getElementById("input");
+    const message = input.value;
+
+    if (!message) return;
+
+    // show user message
+    addMessage("user", message);
+
+    input.value = "";
+
+    const response = await fetch("http://127.0.0.1:8000/chat", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            message: message
+        })
+    });
+
+    const data = await response.json();
+
+    addMessage("bot", data.answer);
+}
+
+function addMessage(role, text) {
+    const chatbox = document.getElementById("chatbox");
+    const div = document.createElement("div");
+    div.className = role;
+    div.innerText = text;
+    chatbox.appendChild(div);
+    chatbox.scrollTop = chatbox.scrollHeight;
+}
+</script>
+
+</body>
+</html>
