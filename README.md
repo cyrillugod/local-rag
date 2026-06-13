@@ -1,2 +1,3 @@
 # local-rag
-Local RAG implementation using Deepseek R1
+
+Local RAG implementation using gemma3:1b
